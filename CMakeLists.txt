@@ -10,6 +10,13 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick QuickControls2 Network Concurrent
 find_package(OpenSSL REQUIRED)
 qt_standard_project_setup()
 
+# Modern Qt6 module layout:
+#  QTP0001 NEW -> QML resources live under :/qt/qml/<URI>/ (standardized prefix)
+#  QTP0004 NEW -> auto-generates qmldir files for subdirectories (ui/,
+#                 ui/components/), so all QML types resolve correctly.
+qt_policy(SET QTP0001 NEW)
+qt_policy(SET QTP0004 NEW)
+
 qt_add_executable(SereneAppStore
     src/main.cpp
     src/PackageManager.cpp
