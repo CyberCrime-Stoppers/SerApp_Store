@@ -1,0 +1,62 @@
+[
+  {
+    "appId": "ccs.serene.fileexplorer",
+    "name": "Serene File Explorer",
+    "developer": "CCS / Scott Dev",
+    "version": "1.4.2",
+    "category": "utilities",
+    "summary": "Fast, tabbed file management for SereneOS.",
+    "description": "Serene File Explorer gives you full control over your files with tabs, split view, batch rename and deep desktop integration.",
+    "iconUrl": "",
+    "packageUrl": "https://store.sereneforge.org/pkg/fileexplorer-1.4.2.tar.zst",
+    "packageSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "published": "2026-11-20",
+    "sizeBytes": 2306867,
+    "permissions": ["filesystem-read"]
+  },
+  {
+    "appId": "ccs.serene.mediaplayer",
+    "name": "Serene Media Player",
+    "developer": "CCS / Scott Dev",
+    "version": "2.0.1",
+    "category": "media",
+    "summary": "Play anything, beautifully.",
+    "description": "A clean media player supporting all common formats, playlists and background playback.",
+    "iconUrl": "",
+    "packageUrl": "https://store.sereneforge.org/pkg/mediaplayer-2.0.1.tar.zst",
+    "packageSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "published": "2026-11-18",
+    "sizeBytes": 4194304,
+    "permissions": ["filesystem-read", "audio-playback"]
+  },
+  {
+    "appId": "ccs.serene.controlpanel",
+    "name": "SereneOS Control Panel",
+    "developer": "CCS / Scott Dev",
+    "version": "0.9.5",
+    "category": "system",
+    "summary": "Every SereneOS setting in one place.",
+    "description": "System settings, themes, networking, users and power management tuned for SereneOS.",
+    "iconUrl": "",
+    "packageUrl": "https://store.sereneforge.org/pkg/controlpanel-0.9.5.tar.zst",
+    "packageSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "published": "2026-11-12",
+    "sizeBytes": 1572864,
+    "permissions": ["system-settings", "network-management"]
+  },
+  {
+    "appId": "ccs.serene.disksmanager",
+    "name": "SereneDisks Manager",
+    "developer": "CCS / Scott Dev",
+    "version": "1.2.0",
+    "category": "utilities",
+    "summary": "Manage, mount and inspect disks on SereneOS.",
+    "description": "Disk health, mounting, partition inspection and SMART data with a serene UI.",
+    "iconUrl": "",
+    "packageUrl": "https://store.sereneforge.org/pkg/disksmanager-1.2.0.tar.zst",
+    "packageSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "published": "2026-11-01",
+    "sizeBytes": 1843200,
+    "permissions": ["filesystem-read", "filesystem-write", "disk-mount"]
+  }
+]
