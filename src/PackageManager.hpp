@@ -67,7 +67,7 @@ signals:
 private:
     void parseIndex(const QByteArray &payload);
     void scanInstalledDir();
-    bool downloadAndStage(AppPackage *pkg);     // stage 1+2 of install pipeline
+    QString downloadAndStage(AppPackage *pkg);      // stage 1+2, returns staged archive path ("" on failure)
     bool extractStaged(AppPackage *pkg, const QString &archivePath); // stage 3+4
 
     QList<AppPackage *> m_apps;
