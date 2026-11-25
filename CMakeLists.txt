@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick QuickControls2 Network Concurrent)
+find_package(OpenSSL REQUIRED)
 qt_standard_project_setup()
 
 qt_add_executable(SereneAppStore
@@ -14,6 +15,13 @@ qt_add_executable(SereneAppStore
     src/PackageManager.cpp
     src/AppPackage.cpp
     src/SignatureVerifier.cpp
+)
+
+# qt_add_qml_module generates its module artifacts in build/<module-name>/,
+# which would collide with the executable of the same name in the build root.
+# Put the binary in a bin/ subdir so the two can never clash.
+set_target_properties(SereneAppStore PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 )
 
 qt_add_qml_module(SereneAppStore
@@ -37,6 +45,7 @@ target_link_libraries(SereneAppStore PRIVATE
     Qt6::QuickControls2
     Qt6::Network
     Qt6::Concurrent
+    OpenSSL::Crypto
 )
 
 include(GNUInstallDirs)
