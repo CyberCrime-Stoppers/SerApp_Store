@@ -1,0 +1,20 @@
+# Build
+build/
+build-*/
+.cache/
+
+# Scratch / testing
+*.tmp/
+*.old/
+*.bin
+
+# Keys — NEVER commit private keys
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.kdev4
+.kdev4/
+compile_commands.json
