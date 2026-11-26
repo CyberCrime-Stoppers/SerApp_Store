@@ -16,7 +16,7 @@
 #include <QSet>
 #include <QFileInfo>
 
-static const char *INDEX_URL = "https://store.sereneforge.org/index.json";
+static const char *INDEX_URL = "https://apps.sereneforge.org/index.json";
 
 PackageManager::PackageManager(QObject *parent)
     : QAbstractListModel(parent)
@@ -127,11 +127,14 @@ void PackageManager::parseIndex(const QByteArray &payload)
         const QString sig = obj.value("signature").toString();
 
         // Verify BEFORE trusting any field from the manifest.
-        // The signature covers the canonical manifest — the index serves
-        // each manifest's canonical bytes alongside the entry; here we
-        // re-canonicalize the entry object (sorted keys, no whitespace)
-        // and verify those bytes. A mismatch in ANY field breaks the sig.
-        const QJsonDocument canonicalDoc(obj);
+        // The signature covers the canonical manifest WITHOUT the "signature"
+        // field itself (the signer strips it before signing). Re-canonicalize
+        // the entry minus "signature" (sorted keys, compact) and verify those
+        // bytes. A mismatch in ANY field breaks the sig.
+        QJsonObject unsignedObj = obj;
+        unsignedObj.remove(QStringLiteral("signature"));
+
+        const QJsonDocument canonicalDoc(unsignedObj);
         const QByteArray canonical = canonicalDoc.toJson(QJsonDocument::Compact);
 
         AppPackage *pkg = new AppPackage(this);

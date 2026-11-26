@@ -2,11 +2,11 @@
 #include <QByteArray>
 #include <openssl/evp.h>
 
-// PLACEHOLDER — generate your keypair offline with:
-//   openssl genpkey -algorithm ED25519 -out ccs_store_ed25519.pem
-// then paste the corresponding public key hex here (tools/sign_manifest.py prints it).
+// Public key pinned from ~/.serene-store-keys/ccs_store_ed25519.pem
+// (printed by tools/sign_manifest.py; regenerate the keypair offline ONLY if
+// you also update this constant and re-release the client).
 const char *SignatureVerifier::PINNED_PUBKEY_HEX =
-    "0000000000000000000000000000000000000000000000000000000000000000";
+    "e514e76f1ce1f64ff3e0f07180e2b568485abf85f19b16bfa5ad60d44ab3d4a8";
 
 SignatureVerifier::SignatureVerifier(QObject *parent) : QObject(parent) {}
 
