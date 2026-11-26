@@ -5,7 +5,7 @@ import QtQuick.Layouts
 // Pushed with: stack.push("AppDetailPage.qml", { rowIndex: N })
 Page {
     id: detail
-    background: Rectangle { color: "#12131a" }
+    background: Rectangle { color: "#16201a" }
     property string pageName: "detail"
 
     required property int rowIndex
@@ -29,7 +29,7 @@ Page {
                 onClicked: detail.StackView.view.pop()
                 contentItem: Label {
                     text: parent.text
-                    color: "#b7a7ff"
+                    color: "#a9c5a4"
                     font.pixelSize: 14
                 }
             }
@@ -38,11 +38,23 @@ Page {
                 spacing: 24
 
                 Rectangle {
-                    width: 128; height: 128; radius: 18; color: "#2c2f40"
+                    width: 128; height: 128; radius: 18; color: "#2f4035"
+
+                    Image {
+                        id: detailIcon
+                        anchors.fill: parent
+                        anchors.margins: 10
+                        fillMode: Image.PreserveAspectFit
+                        source: pkg ? pkg.iconUrl : ""
+                        asynchronous: true
+                        visible: status === Image.Ready
+                    }
+
                     Label {
                         anchors.centerIn: parent
+                        visible: detailIcon.status !== Image.Ready
                         text: "✦"
-                        color: "#8b6cff"
+                        color: "#a9c5a4"
                         font.pixelSize: 56
                     }
                 }
@@ -56,21 +68,21 @@ Page {
                         font.bold: true
                     }
                     Label {
-                        text: pkg ? (pkg.developer + "  ·  v" + pkg.version) : ""
-                        color: "#8d93a8"
+                        text: pkg ? pkg.developer + "  ·  v" + pkg.version : ""
+                        color: "#9db29a"
                         font.pixelSize: 13
                     }
                     Row {
                         spacing: 8
                         Label {
                             text: qsTr("Free")
-                            color: "#43d17c"
+                            color: "#7fa37a"
                             font.pixelSize: 14
                             font.bold: true
                         }
                         Label {
                             text: pkg ? (Math.round(pkg.sizeBytes / 1048576.0) + " MB") : ""
-                            color: "#6d7388"
+                            color: "#9db29a"
                             font.pixelSize: 12
                             anchors.verticalCenter: parent.verticalCenter
                         }
@@ -87,12 +99,12 @@ Page {
                                 width: permLabel.implicitWidth + 18
                                 height: 24
                                 radius: 12
-                                color: "#2c2f40"
+                                color: "#2f4035"
                                 Label {
                                     id: permLabel
                                     anchors.centerIn: parent
                                     text: permText
-                                    color: "#b7a7ff"
+                                    color: "#a9c5a4"
                                     font.pixelSize: 10
                                 }
                             }
@@ -113,12 +125,12 @@ Page {
                     }
                     background: Rectangle {
                         radius: 8
-                        color: parent.hovered ? "#9d80ff" : "#8b6cff"
+                        color: parent.hovered ? "#8fb18a" : "#7fa37a"
                     }
                     contentItem: Label {
                         anchors.centerIn: parent
                         text: parent.text
-                        color: "white"
+                        color: "#16201a"
                         font.bold: true
                         font.pixelSize: 15
                     }
@@ -127,12 +139,12 @@ Page {
                 }
             }
 
-            Rectangle { Layout.fillWidth: true; height: 1; color: "#262939" }
+            Rectangle { Layout.fillWidth: true; height: 1; color: "#2f4035" }
 
             Label {
                 Layout.fillWidth: true
                 text: pkg ? pkg.description : ""
-                color: "#c3c8dd"
+                color: "#b7c6b4"
                 font.pixelSize: 14
                 wrapMode: Text.WordWrap
             }
@@ -140,7 +152,7 @@ Page {
             Label {
                 Layout.topMargin: 8
                 text: qsTr("✓ Signed manifest verified against the pinned CCS / SereneForge key")
-                color: "#43d17c"
+                color: "#7fa37a"
                 font.pixelSize: 11
             }
         }

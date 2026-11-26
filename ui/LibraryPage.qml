@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 Page {
     id: library
-    background: Rectangle { color: "#12131a" }
+    background: Rectangle { color: "#16201a" }
     property string pageName: "library"
 
     Component.onCompleted: PackageManager.loadInstalled()
@@ -15,7 +15,7 @@ Page {
                  PackageManager.rowCount > 0 &&
                  !library.anyInstalled
         text: qsTr("Nothing installed yet — grab something from Browse!")
-        color: "#6d7388"
+        color: "#9db29a"
         font.pixelSize: 15
     }
 
@@ -31,7 +31,7 @@ Page {
 
         Label {
             text: qsTr("My apps")
-            color: "#eae8ff"
+            color: "#dde6da"
             font.pixelSize: 20
             font.bold: true
             Layout.topMargin: 12

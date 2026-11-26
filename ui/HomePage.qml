@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 Page {
     id: home
-    background: Rectangle { color: "#12131a" }
+    background: Rectangle { color: "#16201a" }
     property string pageName: "home"
 
     property bool hasApps: PackageManager.rowCount > 0
@@ -24,7 +24,7 @@ Page {
             HeroBanner {
                 Layout.topMargin: 24
                 Layout.fillWidth: true
-                appName: firstApp ? firstApp.name : qsTr("Welcome to SerApp Store")
+                appName: firstApp ? firstApp.name : qsTr("Welcome to SereneApp Store")
                 tagline: firstApp ? firstApp.summary
                                   : qsTr("Apps by CCS / SereneForge, signed and verified.")
                 onOpenClicked: {
@@ -35,7 +35,7 @@ Page {
 
             Label {
                 text: qsTr("All apps")
-                color: "#eae8ff"
+                color: "#dde6da"
                 font.pixelSize: 20
                 font.bold: true
             }
@@ -50,15 +50,15 @@ Page {
                     model: PackageManager
                     delegate: AppCard {
                         id: delegateCard
-                        required property int index
 
                         Layout.preferredWidth: 240
                         name: model.name
                         developer: model.developer
                         summary: model.summary
                         category: model.category
+                        iconUrl: model.iconUrl
                         installed: model.installed
-                        onClicked: stackRef.push(detailComp, { rowIndex: index })
+                        onClicked: stackRef.push(detailComp, { rowIndex: model.index })
                     }
                 }
             }
@@ -78,7 +78,7 @@ Page {
         anchors.centerIn: parent
         visible: !PackageManager.loading && PackageManager.rowCount === 0 && PackageManager.lastError === ""
         text: qsTr("Loading store index…")
-        color: "#6d7388"
+        color: "#9db29a"
         font.pixelSize: 15
     }
 
@@ -86,7 +86,7 @@ Page {
         anchors { left: parent.left; right: parent.right; margins: 36; bottom: parent.bottom; bottomMargin: 16 }
         visible: PackageManager.lastError !== ""
         text: PackageManager.lastError
-        color: "#ff5470"
+        color: "#c98372"
         font.pixelSize: 12
         wrapMode: Text.WordWrap
     }

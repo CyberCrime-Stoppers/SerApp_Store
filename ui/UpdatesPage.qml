@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 Page {
     id: updates
-    background: Rectangle { color: "#12131a" }
+    background: Rectangle { color: "#16201a" }
     property string pageName: "updates"
 
     ColumnLayout {
@@ -14,7 +14,7 @@ Page {
         Label {
             text: qsTr("Updates") + (PackageManager.updateCount > 0
                   ? "  (" + PackageManager.updateCount + ")" : "")
-            color: "#eae8ff"
+            color: "#dde6da"
             font.pixelSize: 20
             font.bold: true
             Layout.topMargin: 12
@@ -41,7 +41,7 @@ Page {
                         Layout.fillWidth: true
                         height: showMe ? 72 : 0
                         radius: 10
-                        color: "#1c1e28"
+                        color: "#203026"
                         visible: showMe
 
                         RowLayout {
@@ -50,11 +50,11 @@ Page {
 
                             Rectangle {
                                 width: 40; height: 40; radius: 8
-                                color: "#2c2f40"
+                                color: "#2f4035"
                                 Label {
                                     anchors.centerIn: parent
                                     text: "⟳"
-                                    color: "#8b6cff"
+                                    color: "#a9c5a4"
                                     font.pixelSize: 20
                                 }
                             }
@@ -63,14 +63,14 @@ Page {
                                 spacing: 2
                                 Label {
                                     text: model.name
-                                    color: "#eae8ff"
+                                    color: "#dde6da"
                                     font.bold: true
                                     font.pixelSize: 15
                                 }
                                 Label {
                                     text: qsTr("New version %1 available")
                                           .arg(model.version)
-                                    color: "#8d93a8"
+                                    color: "#9db29a"
                                     font.pixelSize: 12
                                 }
                             }
@@ -82,12 +82,12 @@ Page {
                                 onClicked: PackageManager.install(updRow.index)
                                 background: Rectangle {
                                     radius: 6
-                                    color: parent.hovered ? "#9d80ff" : "#8b6cff"
+                                    color: parent.hovered ? "#8fb18a" : "#7fa37a"
                                 }
                                 contentItem: Label {
                                     anchors.centerIn: parent
                                     text: parent.text
-                                    color: "white"
+                                    color: "#16201a"
                                     font.bold: true
                                 }
                             }
@@ -100,7 +100,7 @@ Page {
         Label {
             visible: PackageManager.updateCount === 0
             text: qsTr("Everything is up to date ✦")
-            color: "#43d17c"
+            color: "#7fa37a"
             font.pixelSize: 15
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 40

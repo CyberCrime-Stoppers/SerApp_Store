@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 Page {
     id: browse
-    background: Rectangle { color: "#12131a" }
+    background: Rectangle { color: "#16201a" }
     property string pageName: "browse"
 
     ColumnLayout {
@@ -16,13 +16,13 @@ Page {
             Layout.fillWidth: true
             Layout.topMargin: 12
             placeholderText: qsTr("Search apps, categories, developers…")
-            color: "#eae8ff"
+            color: "#dde6da"
             font.pixelSize: 14
 
             background: Rectangle {
                 radius: 8
-                color: "#1c1e28"
-                border.color: search.activeFocus ? "#8b6cff" : "#262939"
+                color: "#203026"
+                border.color: search.activeFocus ? "#7fa37a" : "#2f4035"
                 border.width: search.activeFocus ? 2 : 1
             }
         }
@@ -40,7 +40,6 @@ Page {
                     model: PackageManager
                     delegate: AppCard {
                         id: card
-                        required property int index
 
                         readonly property string hay:
                             (model.name + " " + model.summary + " " +
@@ -53,8 +52,9 @@ Page {
                         developer: model.developer
                         summary: model.summary
                         category: model.category
+                        iconUrl: model.iconUrl
                         installed: model.installed
-                        onClicked: detailPush.open(index)
+                        onClicked: detailPush.open(model.index)
                     }
                 }
             }
