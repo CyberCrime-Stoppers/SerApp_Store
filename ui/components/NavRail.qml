@@ -5,7 +5,7 @@ import QtQuick.Layouts
 Rectangle {
     id: rail
     width: 220
-    color: "#171923"
+    color: "#131b15"
 
     property int updateCount: 0
     signal pageSelected(string page)   // "home" | "browse" | "library" | "updates"
@@ -32,11 +32,11 @@ Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 56
             radius: 10
-            color: "#232634"
+            color: "#1d2a21"
             Label {
                 anchors.centerIn: parent
                 text: "✦ SerApp Store"
-                color: "#b7a7ff"
+                color: "#a9c5a4"
                 font.pixelSize: 18
                 font.bold: true
             }
@@ -60,17 +60,17 @@ Rectangle {
 
                 contentItem: RowLayout {
                     spacing: 10
-                    Label { text: navBtn.entry.icon; color: "#b7a7ff"; font.pixelSize: 16 }
+                    Label { text: navBtn.entry.icon; color: "#a9c5a4"; font.pixelSize: 16 }
                     Label {
                         text: navBtn.entry.text
-                        color: navBtn.checked ? "#eae8ff" : "#9aa0b5"
+                        color: navBtn.checked ? "#dde6da" : "#9db29a"
                         font.bold: navBtn.checked
                         Layout.fillWidth: true
                     }
                     Rectangle {
                         visible: navBtn.entry.key === "updates" && rail.updateCount > 0
                         width: 26; height: 20; radius: 10
-                        color: "#ff5470"
+                        color: "#c98372"
                         Label {
                             anchors.centerIn: parent
                             text: rail.updateCount
@@ -82,8 +82,8 @@ Rectangle {
                 }
                 background: Rectangle {
                     radius: 8
-                    color: navBtn.checked ? "#2c2f40"
-                         : (navBtn.hovered ? "#222533" : "transparent")
+                    color: navBtn.checked ? "#2f4035"
+                         : (navBtn.hovered ? "#1d2a21" : "transparent")
                 }
             }
         }
@@ -93,7 +93,7 @@ Rectangle {
         Label {
             Layout.fillWidth: true
             text: qsTr("Signed & verified by\nCCS / SereneForge")
-            color: "#565b70"
+            color: "#5a6b58"
             font.pixelSize: 10
             horizontalAlignment: Text.AlignHCenter
         }

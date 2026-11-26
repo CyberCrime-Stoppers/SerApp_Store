@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls.Basic
 
 Row {
     id: stars
@@ -13,7 +14,7 @@ Row {
             width: stars.starSize
             height: stars.starSize
             text: index < Math.round(stars.rating) ? "★" : "☆"
-            color: index < Math.round(stars.rating) ? "#ffc94d" : "#4a4f63"
+            color: index < Math.round(stars.rating) ? "#d4b76a" : "#4d5c4b"
             font.pixelSize: stars.starSize
         }
     }
