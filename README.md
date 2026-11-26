@@ -25,8 +25,8 @@ Windows Store-inspired UX with a distinct SereneOS identity.
  <h4></h4>
  <br>
  <br>
- <img src="/screenshot/1.0.0.0/Serene-App-Library.png" width="250" height="400">
- <img src="/screenshot/1.0.0.0/Serene-App-Store-Updates.png" width="250" height="400">
+ <img src="/screenshot/1.0.0.0/Serene-App-Store-Library.png" width="520" height="520">
+ <img src="/screenshot/1.0.0.0/Serene-App-Store-Updates.png" width="520" height="520">
  
 <br><br>
 
