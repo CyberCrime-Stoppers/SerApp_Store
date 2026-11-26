@@ -61,6 +61,10 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Sign .serapp manifests")
     ap.add_argument("file", nargs="?", help="manifest.json or index.json")
     ap.add_argument("key", nargs="?", help="Ed25519 private key PEM")
+    ap.add_argument("--out", metavar="PATH",
+                    help="write signed JSON to this file instead of stdout "
+                         "(safe for --out to be the same path as file: the "
+                         "input is fully read before the output is written)")
     ap.add_argument("--genkey", metavar="OUT.pem",
                     help="generate a new Ed25519 keypair and exit")
     args = ap.parse_args()
@@ -98,7 +102,13 @@ def main() -> None:
 
     print("Public key pinned in client (hex):", pubkey_hex(key))
     print()
-    print(json.dumps(signed, indent=2, sort_keys=True))
+    out_json = json.dumps(signed, indent=2, sort_keys=True)
+    if args.out:
+        with open(args.out, "w", encoding="utf-8") as f:
+            f.write(out_json + "\n")
+        print("Signed JSON written to:", args.out)
+    else:
+        print(out_json)
 
 
 if __name__ == "__main__":
