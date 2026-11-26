@@ -3,6 +3,33 @@
 App store client for SereneOS — distributes apps by CCS / SereneForge.ORG and remote maintainers.
 Windows Store-inspired UX with a distinct SereneOS identity.
 
+
+ <br>
+<table>
+<tr>
+<img src="/screenshot/1.0.0.0/Serene-App-Store-Home.png" width="520" height="520">
+ <br>
+<sub>
+ <br>
+</sub>
+ <h4></h4> 
+ <br>
+</td>
+<img src="/screenshot/1.0.0.0/Serene-App-Store-Browse.png" width="520" height="520">
+<img src="/screenshot/1.0.0.0/Serene-App-Store-Search-Browse.png" width="520" height="520">
+ <br> 
+<sub>
+ <br>
+ <i></i>
+</sub>
+ <h4></h4>
+ <br>
+ <br>
+ <img src="/screenshot/1.0.0.0/Serene-App-Library.png" width="250" height="400">
+ <img src="/screenshot/1.0.0.0/Serene-App-Store-Updates.png" width="250" height="400">
+ 
+<br><br>
+
 ## Build (KDE Neon / Linux)
 
     sudo apt install qt6-base-dev qt6-declarative-dev qt6-network-dev \
