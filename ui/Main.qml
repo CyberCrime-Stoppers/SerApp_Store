@@ -12,13 +12,13 @@ ApplicationWindow {
     minimumWidth: 960
     minimumHeight: 600
     visible: true
-    title: qsTr("SerApp Store")
+    title: qsTr("Serene App Store")
 
-    color: "#12131a"                 // deep charcoal — SereneOS dark identity
+    color: "#16201a"                 // SereneForge dusk — deep forest (sereneforge.org)
 
-    readonly property color accent: "#8b6cff"      // Serene purple
-    readonly property color surface: "#1c1e28"
-    readonly property color surfaceAlt: "#252835"
+    readonly property color accent: "#7fa37a"      // SereneForge sage
+    readonly property color surface: "#203026"      // dusk panel
+    readonly property color surfaceAlt: "#25332a"   // dusk panel alt
 
     Component.onCompleted: PackageManager.refresh()
 
@@ -74,15 +74,15 @@ ApplicationWindow {
         width: toastLabel.implicitWidth + 32
         height: 44
         radius: 10
-        color: "#2c2f40"
-        border.color: "#8b6cff"
+        color: "#25332a"
+        border.color: "#7fa37a"
         border.width: 1
 
         Label {
             id: toastLabel
             anchors.centerIn: parent
             text: toast.message
-            color: "#eae8ff"
+            color: "#dde6da"
             font.pixelSize: 13
         }
 
